@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLADE ROOM — барбершоп у Дніпрі</title>
+<meta name="description" content="BLADE ROOM barbershop — стрижки та гоління для справжніх чоловіків. Дніпро, вул. Калинова, 53Г (2 поверх). Щодня 10:00–20:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0b;
+  --bg2:#141413;
+  --card:#1a1a18;
+  --line:#2a2a26;
+  --ol:#aaa33f;
+  --ol2:#c9c25a;
+  --white:#f3f2ee;
+  --muted:#9b998f;
+  --ok:#5cbf6d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.eyebrow{font-family:'Comfortaa',sans-serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--ol);margin-bottom:14px;font-weight:700}
+h2{font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.01em;text-transform:uppercase}
+h2 .o{color:var(--ol)}
+.lead{color:var(--muted);max-width:520px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:.3s;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.btn-o{background:var(--ol);color:#111}
+.btn-o:hover{background:var(--ol2);transform:translateY(-2px)}
+.btn-g{background:transparent;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.btn-g:hover{box-shadow:inset 0 0 0 1px var(--ol);color:var(--ol)}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding:18px 0;transition:.35s}
+nav.solid{background:rgba(12,12,11,.93);backdrop-filter:blur(12px);padding:10px 0;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;flex-direction:column;line-height:.9}
+.logo b{font-weight:900;font-size:22px;letter-spacing:.02em}
+.logo b span{-webkit-text-stroke:1.2px var(--white);color:transparent;margin-left:4px}
+.logo small{font-family:'Comfortaa',sans-serif;color:var(--ol);font-size:11px;letter-spacing:.25em;font-weight:700}
+.menu{display:flex;gap:28px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.menu a:hover{color:var(--ol)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.status{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:#777}
+.dot.open{background:var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(92,191,109,.6)}70%{box-shadow:0 0 0 8px rgba(92,191,109,0)}100%{box-shadow:0 0 0 0 rgba(92,191,109,0)}}
+.nav-book{padding:12px 22px}
+.burger{display:none;width:42px;height:42px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--white);transition:.3s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:25px}
+.burger.on span:nth-child(1){top:20px;transform:rotate(45deg)}
+.burger.on span:nth-child(2){top:20px;transform:rotate(-45deg)}
+.mobile{position:fixed;inset:0;background:var(--bg);z-index:45;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:.35s}
+.mobile.on{opacity:1;pointer-events:auto}
+.mobile a{font-weight:900;font-size:28px;text-transform:uppercase}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden;
+  background:
+   radial-gradient(ellipse at 70% 30%,rgba(170,163,63,.16),transparent 55%),
+   repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.025) 38px 40px),
+   repeating-linear-gradient(90deg,transparent 0 88px,rgba(255,255,255,.02) 88px 90px),
+   var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,var(--bg))}
+.hero-in{position:relative;z-index:2;text-align:center;width:100%}
+.wordmark{display:inline-block;position:relative;margin-bottom:34px}
+.comb{display:block;height:44px;width:58%;margin-left:auto;margin-bottom:-2px;background:
+  linear-gradient(var(--ol),var(--ol)) bottom/100% 14px no-repeat,
+  repeating-linear-gradient(90deg,var(--ol) 0 5px,transparent 5px 11px) top/100% 30px no-repeat;
+  clip-path:polygon(4% 100%,0 70%,12% 68%,14% 0,100% 0,100% 100%)}
+.wm-row{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;justify-content:center}
+.wm-blade{font-weight:900;font-size:clamp(64px,12vw,170px);line-height:.8;letter-spacing:-.02em}
+.wm-room{font-weight:900;font-size:clamp(52px,9.5vw,136px);line-height:.8;-webkit-text-stroke:2px var(--white);color:transparent;letter-spacing:.01em}
+.wm-sub{display:flex;align-items:center;gap:14px;justify-content:flex-start;margin-top:10px;font-family:'Comfortaa',sans-serif;color:var(--ol);font-size:clamp(22px,3.2vw,42px);font-weight:700}
+.wm-sub i{display:block;width:clamp(40px,7vw,90px);height:10px;background:repeating-linear-gradient(0deg,var(--ol) 0 2px,transparent 2px 4px)}
+.hero h1{font-weight:700;font-size:clamp(16px,2vw,22px);letter-spacing:.3em;text-transform:uppercase;margin-bottom:6px}
+.hero .tag{font-family:'Comfortaa',sans-serif;color:var(--muted);font-size:clamp(15px,1.6vw,19px);letter-spacing:.18em;margin-bottom:38px}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.hero-facts{display:flex;justify-content:center;gap:0;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:860px;margin:0 auto}
+.hf{flex:1;min-width:200px;padding:18px 20px;border-right:1px solid var(--line);font-size:14px}
+.hf:last-child{border-right:none}
+.hf small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ol);font-weight:700;margin-bottom:2px}
+
+/* MARQUEE */
+.mq{background:var(--ol);color:#111;overflow:hidden;white-space:nowrap;padding:16px 0}
+.mq-in{display:inline-flex;gap:40px;animation:mq 26s linear infinite;font-weight:900;font-size:18px;letter-spacing:.08em;text-transform:uppercase}
+.mq-in span::after{content:"✂";margin-left:40px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:50px}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--bg);padding:34px 30px;position:relative;overflow:hidden;transition:background .3s}
+.svc:hover{background:var(--card)}
+.svc .n{font-weight:900;font-size:56px;line-height:1;color:transparent;-webkit-text-stroke:1px #3a3a34;position:absolute;right:20px;top:16px;transition:.3s}
+.svc:hover .n{-webkit-text-stroke-color:var(--ol)}
+.svc h3{font-weight:800;font-size:20px;text-transform:uppercase;margin-bottom:8px;position:relative}
+.svc p{color:var(--muted);font-size:14px;margin-bottom:20px;position:relative}
+.svc .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;position:relative}
+.svc .meta span{color:var(--ol);font-weight:700}
+.svc .meta a{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px;border-bottom:1px solid var(--ol);padding-bottom:2px}
+.note{margin-top:18px;font-size:13px;color:var(--muted)}
+.lvl{display:flex;flex-wrap:wrap;gap:0;margin-bottom:14px;border:1px solid var(--line);width:max-content;max-width:100%}
+.lvl button{padding:13px 22px;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:.25s}
+.lvl button.on{background:var(--ol);color:#111}
+.ptabs{display:flex;gap:24px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.ptabs button{padding:14px 0;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.ptabs button.on{color:var(--white);border-color:var(--ol)}
+.pr{display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid var(--line)}
+.pr h4{font-weight:700;font-size:17px;text-transform:uppercase;white-space:nowrap}
+.pr h4 small{display:block;font-size:12px;color:var(--muted);text-transform:none;font-weight:500}
+.pr .dots{flex:1;border-bottom:1px dotted #444;transform:translateY(-4px);min-width:20px}
+.pr .price{font-weight:900;font-size:24px;color:var(--ol);white-space:nowrap}
+.pr .price.na{font-size:13px;font-weight:600;color:var(--muted)}
+.pr .price b{font-size:14px;margin-left:3px}
+@media(max-width:560px){.pr h4{white-space:normal;font-size:15px}.lvl button{padding:11px 12px;font-size:11px}}
+
+/* TEAM */
+.team{background:var(--bg2)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.m{border:1px solid var(--line);background:var(--card);padding:28px 20px 22px;text-align:center;transition:.3s;position:relative;overflow:hidden}
+.m::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ol);transform:scaleX(0);transition:transform .35s}
+.m:hover{transform:translateY(-5px);border-color:#3a3a34}
+.m:hover::before{transform:scaleX(1)}
+.ava{width:88px;height:88px;margin:0 auto 16px;display:grid;place-items:center;font-weight:900;font-size:30px;color:#111;background:var(--ol);clip-path:polygon(25% 0,100% 0,75% 100%,0 100%)}
+.m h4{font-weight:800;font-size:17px;text-transform:uppercase;margin-bottom:2px}
+.m .role{font-size:13px;color:var(--muted);margin-bottom:16px}
+.m a{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ol)}
+.m.join{display:flex;flex-direction:column;align-items:center;justify-content:center;border-style:dashed;background:transparent}
+.m.join b{font-weight:900;font-size:40px;color:var(--ol);line-height:1}
+@media(max-width:980px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* WHY */
+.why{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.why-vis{position:relative;aspect-ratio:4/5;background:
+  repeating-linear-gradient(0deg,#1e1d1b 0 26px,#151513 26px 28px),
+  #1e1d1b;overflow:hidden}
+.why-vis::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 58px,#151513 58px 60px);mask:repeating-linear-gradient(0deg,#000 0 28px,transparent 28px 56px)}
+.chair{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);width:62%}
+.lamp{position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:22%;background:#444}
+.lamp::after{content:"";position:absolute;bottom:-22px;left:-34px;width:70px;height:26px;border-radius:70px 70px 0 0;background:#2a2a26}
+.glow{position:absolute;top:24%;left:50%;transform:translateX(-50%);width:70%;aspect-ratio:1;background:radial-gradient(circle,rgba(201,194,90,.22),transparent 60%)}
+.why-badge{position:absolute;left:0;bottom:30px;background:var(--ol);color:#111;padding:18px 24px;font-weight:900;text-transform:uppercase;line-height:1.1}
+.why-badge small{display:block;font-size:11px;letter-spacing:.15em;font-weight:700}
+.points{display:grid;gap:22px;margin-top:34px}
+.pt{display:flex;gap:18px}
+.pt i{flex-shrink:0;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ol);color:var(--ol);font-style:normal;font-weight:900}
+.pt b{display:block;font-weight:800;text-transform:uppercase;font-size:15px;margin-bottom:2px}
+.pt span{color:var(--muted);font-size:14px}
+
+/* BOOK */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+.step{border:1px solid var(--line);padding:30px;background:var(--bg2)}
+.step b{display:block;font-weight:900;font-size:42px;color:var(--ol);line-height:1;margin-bottom:12px}
+.step h4{font-weight:800;text-transform:uppercase;font-size:16px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+.channels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ch{display:flex;align-items:center;gap:14px;padding:20px;border:1px solid var(--line);background:var(--card);transition:.25s}
+.ch:hover{border-color:var(--ol);transform:translateY(-3px)}
+.ch svg{width:26px;height:26px;color:var(--ol);flex-shrink:0}
+.ch b{display:block;font-weight:800;font-size:14px}
+.ch span{font-size:12px;color:var(--muted)}
+
+/* INFO */
+.info{background:var(--bg2)}
+.info-grid{display:grid;grid-template-columns:1fr 1.3fr;border:1px solid var(--line)}
+.hours{padding:44px}
+.hours h3{font-weight:900;text-transform:uppercase;font-size:22px;margin-bottom:6px}
+.hours .addr{color:var(--muted);margin-bottom:24px}
+.hrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hrow.today{color:var(--ol);font-weight:700}
+.map{min-height:420px}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.3) sepia(.2)}
+
+/* FAQ */
+.faq-list{max-width:820px;margin:0 auto}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-size:17px;font-weight:700}
+.q i{flex-shrink:0;width:30px;height:30px;border:1px solid var(--line);position:relative;transition:.3s}
+.q i::before,.q i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--white);transform:translate(-50%,-50%);transition:.3s}
+.q i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.q.open i{background:var(--ol);border-color:var(--ol)}
+.q.open i::before,.q.open i::after{background:#111}
+.q.open i::after{transform:translate(-50%,-50%) rotate(0)}
+.a{max-height:0;overflow:hidden;transition:max-height .4s;color:var(--muted)}
+.a p{padding-bottom:22px}
+
+/* CTA */
+.cta{text-align:center;padding:120px 0;background:radial-gradient(ellipse at center,rgba(170,163,63,.18),transparent 60%)}
+.cta h2{margin-bottom:16px}
+.cta p{color:var(--muted);margin-bottom:34px}
+
+footer{border-top:1px solid var(--line);padding:40px 0 110px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.socials{display:flex;gap:10px}
+.socials a{width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;transition:.25s;color:var(--ol)}
+.socials a:hover{border-color:var(--ol);background:var(--ol);color:#111}
+.socials svg{width:18px;height:18px}
+.concept{font-size:12px;opacity:.7;margin-top:14px;text-align:center}
+
+.bookbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;gap:8px}
+.bookbar .btn{flex:1}
+.bookbar .call{flex:0 0 56px;padding:0;background:#111;color:var(--ol);box-shadow:inset 0 0 0 1px var(--ol)}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s ease,transform .85s ease}
+.rv.show{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:980px){
+  .menu,.nav-book,.status{display:none}
+  .burger{display:block}
+  .why-grid,.info-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .channels{grid-template-columns:1fr 1fr}
+  .bookbar{display:flex}
+  section{padding:80px 0}
+}
+@media(max-width:560px){
+  .svc-grid,.channels{grid-template-columns:1fr}
+  .hf{border-right:none;border-bottom:1px solid var(--line)}
+  .hf:last-child{border-bottom:none}
+  .hours{padding:30px 22px}
+  .wm-sub{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .mq-in,.dot.open{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><b>BLADE<span>ROOM</span></b><small>barbershop</small></a>
+    <div class="menu">
+      <a href="#services">Ціни</a>
+      <a href="#team">Барбери</a>
+      <a href="#book">Запис</a>
+      <a href="#contacts">Контакти</a>
+    </div>
+    <div class="nav-right">
+      <div class="status"><span class="dot" id="dot"></span><span id="statusText">—</span></div>
+      <a href="tel:+380508008123" class="btn btn-o nav-book">Записатися</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile" id="mobile">
+  <a href="#services">Ціни</a>
+  <a href="#team">Барбери</a>
+  <a href="#book">Запис</a>
+  <a href="#contacts">Контакти</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="wordmark rv">
+      <span class="comb"></span>
+      <div class="wm-row"><span class="wm-blade">BLADE</span><span class="wm-room">ROOM</span></div>
+      <div class="wm-sub"><i></i>barbershop<i></i></div>
+    </div>
+    <h1 class="rv d1">Стрижки та гоління</h1>
+    <div class="tag rv d1">для справжніх чоловіків</div>
+    <div class="hero-actions rv d2">
+      <a href="#book" class="btn btn-o">Записатися</a>
+      <a href="#services" class="btn btn-g">Послуги</a>
+    </div>
+    <div class="hero-facts rv d3">
+      <div class="hf"><small>Адреса</small>вул. Калинова, 53Г, 2 поверх</div>
+      <div class="hf"><small>Щодня</small>10:00 – 20:00</div>
+      <div class="hf"><small>Запис</small><a href="tel:+380508008123">+38 050 800 8 123</a></div>
+    </div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq-in">
+    <span>Чоловічі стрижки</span><span>Борода</span><span>Батько + син</span><span>Камуфляж сивини</span><span>Біозавивка</span><span>Щодня 10–20</span>
+    <span>Чоловічі стрижки</span><span>Борода</span><span>Батько + син</span><span>Камуфляж сивини</span><span>Біозавивка</span><span>Щодня 10–20</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow rv">Послуги</div>
+        <h2 class="rv d1">Ціни <span class="o">без сюрпризів</span></h2>
+      </div>
+      <p class="lead rv d2">Оберіть рівень барбера, і ціни одразу зміняться. Потім запишіться у зручний для вас спосіб.</p>
+    </div>
+    <div class="lvl rv" id="lvl">
+      <button data-l="0">Молодший барбер</button>
+      <button class="on" data-l="1">Барбер</button>
+      <button data-l="2">Старший барбер</button>
+    </div>
+    <div class="ptabs rv" id="ptabs">
+      <button class="on" data-c="cut">Стрижки</button>
+      <button data-c="combo">Комплекси</button>
+      <button data-c="extra">Додатково</button>
+    </div>
+    <div class="plist rv" id="plist"></div>
+    <p class="note">Ціни в гривнях. Рівень барбера обирайте під час запису.</p>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow rv">Команда</div>
+        <h2 class="rv d1">Наші <span class="o">барбери</span></h2>
+      </div>
+      <p class="lead rv d2">Сім майстрів, які знають свою справу. Оберіть свого барбера і запишіться до нього напряму.</p>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div class="why-vis rv">
+      <div class="lamp"></div>
+      <div class="glow"></div>
+      <svg class="chair" viewBox="0 0 200 220" fill="none">
+        <rect x="55" y="10" width="90" height="95" rx="16" fill="#232320" stroke="#3a3a34" stroke-width="2"/>
+        <rect x="45" y="100" width="110" height="34" rx="10" fill="#232320" stroke="#3a3a34" stroke-width="2"/>
+        <rect x="30" y="92" width="22" height="40" rx="8" fill="#2c2c28"/>
+        <rect x="148" y="92" width="22" height="40" rx="8" fill="#2c2c28"/>
+        <rect x="94" y="134" width="12" height="46" fill="#aaa33f"/>
+        <ellipse cx="100" cy="196" rx="58" ry="12" fill="#2c2c28" stroke="#aaa33f" stroke-width="2"/>
+      </svg>
+      <div class="why-badge"><small>2 поверх</small>Калинова 53Г</div>
+    </div>
+    <div>
+      <div class="eyebrow rv">Про нас</div>
+      <h2 class="rv d1">Простір <span class="o">для чоловіків</span></h2>
+      <p class="lead rv d2" style="margin-top:18px">Цегла, шкіра, тепле світло і майстри, які знають, що роблять. Сюди приходять не просто постригтися, а відпочити від справ.</p>
+      <div class="points">
+        <div class="pt rv d1"><i>01</i><div><b>7 барберів</b><span>Від молодшого до старшого: оберіть свій рівень і бюджет.</span></div></div>
+        <div class="pt rv d2"><i>02</i><div><b>Без вихідних</b><span>Працюємо щодня з 10:00 до 20:00.</span></div></div>
+        <div class="pt rv d3"><i>03</i><div><b>Зручний запис</b><span>Телефон, Telegram, Viber або Instagram.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow rv">Запис</div>
+        <h2 class="rv d1">Три кроки <span class="o">до стрижки</span></h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step rv"><b>1</b><h4>Оберіть послугу</h4><p>Стрижка, борода, комплекс чи гоління.</p></div>
+      <div class="step rv d1"><b>2</b><h4>Напишіть або подзвоніть</h4><p>Будь-яким зручним способом нижче.</p></div>
+      <div class="step rv d2"><b>3</b><h4>Приходьте</h4><p>Калинова, 53Г, 2 поверх. Ми чекаємо.</p></div>
+    </div>
+    <div class="channels">
+      <a class="ch rv" href="tel:+380508008123"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div><b>Подзвонити</b><span>+38 050 800 8 123</span></div></a>
+      <a class="ch rv d1" href="https://t.me/blade_room" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 8-6"/></svg><div><b>Telegram</b><span>@blade_room</span></div></a>
+      <a class="ch rv d2" href="viber://chat?number=%2B380508008123"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c5 0 8 2.5 8 7.5S17 18 12 18l-4 3v-3.5C5 16.5 4 14 4 10.5 4 5.5 7 3 12 3z"/></svg><div><b>Viber</b><span>написати</span></div></a>
+      <a class="ch rv d3" href="https://www.instagram.com/barbershop_blade_room_/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><div><b>Instagram</b><span>у директ</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="contacts">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow rv">Контакти</div>
+        <h2 class="rv d1">Як нас <span class="o">знайти</span></h2>
+      </div>
+    </div>
+    <div class="info-grid rv">
+      <div class="hours">
+        <h3>BLADE ROOM</h3>
+        <div class="addr">Дніпро, вул. Калинова, 53Г, 2 поверх</div>
+        <div id="hours"></div>
+        <div style="margin-top:26px"><a target="_blank" rel="noopener" class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&destination=%D0%B2%D1%83%D0%BB.%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%D0%B0%2C%2053%D0%93%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE">Маршрут</a></div>
+      </div>
+      <div class="map"><iframe loading="lazy" title="Карта" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%D0%B2%D1%83%D0%BB.%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%D0%B0%2C%2053%D0%93%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:46px">
+      <div class="eyebrow rv">FAQ</div>
+      <h2 class="rv d1">Часті <span class="o">запитання</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="q rv"><button>Як записатися?<i></i></button><div class="a"><p>Подзвоніть за номером +38 050 800 8 123 або напишіть у Telegram, Viber чи Instagram. Підберемо зручний час.</p></div></div>
+      <div class="q rv"><button>Як вас знайти?<i></i></button><div class="a"><p>Дніпро, вул. Калинова, 53Г, 2 поверх. Натисніть «Маршрут», щоб прокласти шлях у Google Картах.</p></div></div>
+      <div class="q rv"><button>Ви працюєте у вихідні?<i></i></button><div class="a"><p>Так, барбершоп працює щодня з 10:00 до 20:00.</p></div></div>
+      <div class="q rv"><button>Чи можна прийти з дитиною?<i></i></button><div class="a"><p>Так, ми робимо дитячі стрижки. Краще заздалегідь записатися, щоб не чекати.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="eyebrow rv">Blade Room</div>
+    <h2 class="rv d1">Час <span class="o">оновитися</span></h2>
+    <p class="rv d2">Запишіться зараз, і ми підберемо зручний час.</p>
+    <a href="tel:+380508008123" class="btn btn-o rv d3">Записатися</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="logo"><b>BLADE<span>ROOM</span></b><small>barbershop</small></a>
+      <div>вул. Калинова, 53Г, 2 поверх · <a href="tel:+380508008123">+38 050 800 8 123</a></div>
+      <div class="socials">
+        <a href="https://www.tiktok.com/@blade_room_" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.3 4.5 5 4.8"/></svg></a>
+        <a href="https://www.instagram.com/barbershop_blade_room_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+        <a href="viber://chat?number=%2B380508008123" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c5 0 8 2.5 8 7.5S17 18 12 18l-4 3v-3.5C5 16.5 4 14 4 10.5 4 5.5 7 3 12 3z"/></svg></a>
+        <a href="https://t.me/blade_room" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 8-6"/></svg></a>
+      </div>
+    </div>
+    <div class="concept">Концепт сайту від V1MER</div>
+  </div>
+</footer>
+
+<div class="bookbar">
+  <a href="#book" class="btn btn-o">Записатися</a>
+  <a href="tel:+380508008123" class="btn call" aria-label="Подзвонити"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+</div>
+
+<script>
+/* PRICES (з прайсу в Instagram): [молодший, барбер, старший] */
+const P={
+ cut:[
+  ['Чоловіча стрижка','',[500,650,700]],
+  ['Подовжена стрижка','',[null,700,800]],
+  ['Стрижка бороди','',[400,500,550]],
+  ['Дитяча стрижка','до 12 років',[450,550,600]]
+ ],
+ combo:[
+  ['Стрижка машинкою + борода','',[650,900,null]],
+  ['Чоловіча стрижка + борода','',[700,1000,1100]],
+  ['Подовжена стрижка + борода','',[null,1100,1200]],
+  ['Батько + син','син до 12 років',[800,1000,1100]]
+ ],
+ extra:[
+  ['Камуфляж сивини','голова',[null,400,500]],
+  ['Камуфляж сивини','борода',[null,400,500]],
+  ['Біозавивка','',['2500–4000','2500–4000','2500–4000']],
+  ['Фарбування волосся','',['від 1500','від 1500','від 1500']]
+ ]
+};
+let lvl=1,pc='cut';
+const plist=document.getElementById('plist');
+function renderP(){
+  plist.innerHTML=P[pc].map(([n,s,p])=>{
+    const v=p[lvl];
+    const price=v==null?'<span class="price na">у іншого барбера</span>':`<span class="price">${v}<b>₴</b></span>`;
+    return `<div class="pr"><h4>${n}${s?`<small>${s}</small>`:''}</h4><span class="dots"></span>${price}</div>`;
+  }).join('');
+}
+document.getElementById('lvl').onclick=e=>{const b=e.target.closest('button');if(!b)return;lvl=+b.dataset.l;document.querySelectorAll('#lvl button').forEach(x=>x.classList.toggle('on',x===b));renderP()};
+document.getElementById('ptabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=b.dataset.c;document.querySelectorAll('#ptabs button').forEach(x=>x.classList.toggle('on',x===b));renderP()};
+renderP();
+
+/* TEAM (з хайлайтів Instagram) */
+const team=['Катерина','Тетяна Чорних','Галина','Світлана','Тетяна','Крістіна','Альбіна'];
+document.getElementById('teamGrid').innerHTML=team.map((n,i)=>`<div class="m rv ${i%4?'d'+(i%4):''}"><div class="ava">${n[0]}</div><h4>${n}</h4><div class="role">Барбер</div><a href="#book">Записатися →</a></div>`).join('')
+ +`<div class="m join rv d3"><b>7</b><div class="role" style="margin:8px 0 0">барберів у команді<br>працюємо щодня 10–20</div></div>`;
+
+const days=['Неділя','Понеділок','Вівторок','Середа','Четвер',"П'ятниця",'Субота'];
+function kyiv(){
+  const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Kyiv',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  const g=k=>p.find(x=>x.type===k).value;
+  return {wd:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),min:+g('hour')*60+ +g('minute')};
+}
+function status(){
+  const {wd,min}=kyiv(),open=min>=600&&min<1200;
+  document.getElementById('dot').classList.toggle('open',open);
+  document.getElementById('statusText').textContent=open?'Відчинено · до 20:00':'Зачинено · з 10:00';
+  document.getElementById('hours').innerHTML=[1,2,3,4,5,6,0].map(d=>`<div class="hrow ${d===wd?'today':''}"><span>${days[d]}</span><span>10:00 – 20:00</span></div>`).join('');
+}
+status();setInterval(status,60000);
+
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+const burger=document.getElementById('burger'),mobile=document.getElementById('mobile');
+burger.onclick=()=>{burger.classList.toggle('on');mobile.classList.toggle('on')};
+mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('on');mobile.classList.remove('on')}));
+
+document.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{
+  const q=b.parentElement,a=q.querySelector('.a'),o=q.classList.toggle('open');
+  a.style.maxHeight=o?a.scrollHeight+'px':0;
+});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
